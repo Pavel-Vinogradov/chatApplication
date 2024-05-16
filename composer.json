@@ -12,6 +12,7 @@
         "tizix/laravel-helpers": "dev-main"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "fakerphp/faker": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.57",
         "laravel/pint": "^1.13",
@@ -48,7 +49,9 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ]
+        ],
+        "fix-code-style": ["@php -dxdebug.mode=off vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php"],
+        "php-stan-analysis": ["@php ./vendor/bin/phpstan analyse --memory-limit=2G"]
     },
     "extra": {
         "laravel": {
